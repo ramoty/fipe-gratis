@@ -58,7 +58,7 @@ class FipeGratis {
         if (is_null(FipeGratis::$__TABELAS)) {
 
             $client = new Client();
-            $crawler = $client->request('GET', "http://www.fipe.org.br/web/indices/veiculos/default.aspx");
+            $crawler = $client->request('GET', "http://fipeapi.appspot.com/api/1");
 
             FipeGratis::$__TABELAS = $crawler->filter('#ddlTabelaReferencia > option')->each(function (Crawler $node) {
                 return array('codigo' => $node->attr('value'), 'tabela' => $node->text());
@@ -117,7 +117,7 @@ class FipeGratis {
             /*
              * Consultando modelos
              */
-            $ch = curl_init("http://www.fipe.org.br/web/indices/veiculos/default.aspx?$tipo");
+            $ch = curl_init("http://fipeapi.appspot.com/api/1/$tipo");
             $options = array(
                 CURLOPT_COOKIEJAR => 'cookiejar',
                 CURLOPT_HTTPHEADER => array(
@@ -125,7 +125,7 @@ class FipeGratis {
                     "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
                     "Accept-Language: pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3",
                     "Accept-Encoding: gzip, deflate",
-                    "Referer: http://www.fipe.org.br/web/indices/veiculos/default.aspx?$tipo",
+                    "Referer: http://fipeapi.appspot.com/api/1/$tipo",
                     "Cookie: " . FipeGratis::$__COOKIE . "",
                     "Host: www.fipe.org.br",
                     "Connection: keep-alive",
@@ -227,7 +227,7 @@ class FipeGratis {
             /*
              * Consultando modelos
              */
-            $ch = curl_init("http://www.fipe.org.br/web/indices/veiculos/default.aspx?$tipo");
+            $ch = curl_init("http://fipeapi.appspot.com/api/1/$tipo");
             $options = array(
                 CURLOPT_COOKIEJAR => 'cookiejar',
                 CURLOPT_HTTPHEADER => array(
@@ -235,7 +235,7 @@ class FipeGratis {
                     "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
                     "Accept-Language: pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3",
                     "Accept-Encoding: gzip, deflate",
-                    "Referer: http://www.fipe.org.br/web/indices/veiculos/default.aspx?$tipo",
+                    "Referer: http://fipeapi.appspot.com/api/1/$tipo",
                     "Cookie: " . FipeGratis::$__COOKIE . "",
                     "Host: www.fipe.org.br",
                     "Connection: keep-alive",
@@ -325,7 +325,7 @@ class FipeGratis {
             /*
              * Consultando anos
              */
-            $ch = curl_init("http://www.fipe.org.br/web/indices/veiculos/default.aspx?azxp=1&$tipo");
+            $ch = curl_init("http://fipeapi.appspot.com/api/1/azxp=1&$tipo");
             $options = array(
                 CURLOPT_COOKIEJAR => 'cookiejar',
                 CURLOPT_HTTPHEADER => array(
@@ -333,7 +333,7 @@ class FipeGratis {
                     "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
                     "Accept-Language: pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3",
                     "Accept-Encoding: gzip, deflate",
-                    "Referer: http://www.fipe.org.br/web/indices/veiculos/default.aspx?azxp=1&$tipo",
+                    "Referer: http://fipeapi.appspot.com/api/1/azxp=1&$tipo",
                     "Cookie: " . FipeGratis::$__COOKIE . "",
                     "Host: www.fipe.org.br",
                     "Connection: keep-alive",
@@ -420,7 +420,7 @@ class FipeGratis {
         /*
          * Consultando anos
          */
-        $ch = curl_init("http://www.fipe.org.br/web/indices/veiculos/default.aspx?azxp=1&$tipo");
+        $ch = curl_init("http://fipeapi.appspot.com/api/1/azxp=1&$tipo");
         $options = array(
             CURLOPT_COOKIEJAR => 'cookiejar',
             CURLOPT_HTTPHEADER => array(
@@ -428,7 +428,7 @@ class FipeGratis {
                 "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
                 "Accept-Language: pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3",
                 "Accept-Encoding: gzip, deflate",
-                "Referer: http://www.fipe.org.br/web/indices/veiculos/default.aspx?azxp=1&$tipo",
+                "Referer: http://fipeapi.appspot.com/api/1/azxp=1&$tipo",
                 "Cookie: " . FipeGratis::$__COOKIE . "",
                 "Host: www.fipe.org.br",
                 "Connection: keep-alive",
@@ -497,7 +497,7 @@ class FipeGratis {
     private static function setParams($tipo = null) {
         FipeGratis::setCookie($tipo);
 
-        $ch = curl_init("http://www.fipe.org.br/web/indices/veiculos/default.aspx?azxp=1&$tipo");
+        $ch = curl_init("http://fipeapi.appspot.com/api/1/azxp=1&$tipo");
         $options = array(
             CURLOPT_COOKIEJAR => 'cookiejar',
             CURLOPT_HTTPHEADER => array(
